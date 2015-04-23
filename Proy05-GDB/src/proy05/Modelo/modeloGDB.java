@@ -10,7 +10,6 @@ import com.mysql.jdbc.Statement;
 
 public class modeloGDB {
 
-
 	private static String NOMBRE_COL="nombre";
 	private static String APELLIDOS_COL="apellidos";
 	private static String JUEGO_COL="jPreferido";

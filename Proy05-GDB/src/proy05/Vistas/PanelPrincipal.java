@@ -21,7 +21,7 @@ import proy05.Modelo.modeloGDB;
 
 public class PanelPrincipal extends JPanel {
 	
-
+/*ELEMENTOS DE LA PANTALLA*/
 	private JMenuBar menuBar;
 	private JMenu mnPrincipal,mnJuegos,mnPerfil;
 	private JLabel iAvatar;
@@ -31,6 +31,8 @@ public class PanelPrincipal extends JPanel {
 	private JMenuItem mntmPrincipal,mntmJuegos,mntmPerfil;
 	private JComboBox comboBox;
 	private JLabel lblUsuario,lblPass;
+	
+	
 	/**
 	 * CONSTRUCTOR DEL JPANEL PRINCIPAL
 	 */

@@ -1,14 +1,16 @@
-package proy05.Modelo;
+package proy05.Controlador;
 
+import proy05.Modelo.ConexionBD;
+import proy05.Modelo.modeloGDB;
 import proy05.Vistas.VentanaApp;
 
 public class PrincipalP5 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		ConexionBD cBD;
 		modeloGDB mGDB;
-		//Generado el objeto
+		
+		//Generado  la instrancia de la clase ConexionBD.
 		cBD = ConexionBD.getInstance("localhost","proy06","root","tonphp");
 		if(cBD.connectBD()==true){
 			System.out.println("CONECTADOS CON ÉXITO");
@@ -18,6 +20,8 @@ public class PrincipalP5 {
 		}else{
 			System.out.println("ERROR EN LA CONEXIÓN");
 		}
+		
+		//CARGA LA PANTALLA DEL APLICATIVO
 		VentanaApp frame = new VentanaApp();
 		frame.setVisible(true);
 	} 
