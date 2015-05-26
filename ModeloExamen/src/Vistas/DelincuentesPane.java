@@ -20,6 +20,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import Modelo.modeloDelincuentes;
+import javax.swing.JTextPane;
 
 public class DelincuentesPane extends JPanel {
 	JPanel infoDel,anteDel,Del;
@@ -68,10 +69,22 @@ public class DelincuentesPane extends JPanel {
 		btnSalvar.setBounds(364, 486, 229, 23);
 		anteDel.add(btnSalvar);
 		
+		
+		JLabel lblAntecedentes = new JLabel("Antecedentes");
+		lblAntecedentes.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblAntecedentes.setBounds(52, 68, 229, 37);
+		anteDel.add(lblAntecedentes);
+		
 		definirInfoDel();
 	
 	}
 	public void definirInfoDel(){
+		
+		JTextPane AntecedentestxtPane = new JTextPane();
+		AntecedentestxtPane.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		AntecedentestxtPane.setEditable(false);
+		AntecedentestxtPane.setBounds(10, 130, 524, 252);
+		anteDel.add(AntecedentestxtPane);
 		
 		JLabel lblNombre = new JLabel("Nombre:   ");
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -154,6 +167,7 @@ public class DelincuentesPane extends JPanel {
 					textFieldNacionalidad.setText(delincuente[3]);
 					textFieldDireccion.setText(delincuente[4]);
 					textFieldPoblacion.setText(delincuente[5]);
+					AntecedentestxtPane.setText(delincuente[6]);
 				}
 				
 			}
@@ -165,6 +179,7 @@ public class DelincuentesPane extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				CardLayout c= (CardLayout)Del.getLayout();
 				c.show(Del, "anteDel");
+				
 			}
 		});
 		antebtn.setFont(new Font("Tahoma", Font.PLAIN, 16));
