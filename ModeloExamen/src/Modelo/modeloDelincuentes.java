@@ -18,6 +18,8 @@ public class modeloDelincuentes {
 	private static String POB_DEL="poblacion";
 	private static String ANT_DEL="antecedentes";
 	
+	private static String NOMBRE_US="usuario";
+	
 	private static String COLUMNAS[]={ID_DEL,NOMBRE_DEL,EDAD_DEL,SEXO_DEL,NAC_DEL,DIR_DEL,POB_DEL,ANT_DEL};
 	
 	Statement instruccion = null;
@@ -96,5 +98,31 @@ public class modeloDelincuentes {
 			}
 		}
 		return nombres;
+	}
+	
+	public ArrayList<String> getUsuarios(){
+		ArrayList<String> usuarios=new ArrayList<String>();
+		try {
+			instruccion= (Statement) this.conexion.createStatement();
+			conjuntoResultados= instruccion.executeQuery("SELECT usuario FROM usuarios");
+			
+			while(conjuntoResultados.next()){
+				usuarios.add(conjuntoResultados.getString(NOMBRE_US));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try{
+				conjuntoResultados.close();
+				instruccion.close();
+			}
+			catch( SQLException excepcionSql ) 
+			{
+				excepcionSql.printStackTrace();
+			}
+		}
+		return usuarios;
 	}
 }

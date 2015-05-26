@@ -34,7 +34,7 @@ public class AppFrame extends JFrame {
 		cBD = ConexionBD.getInstance("localhost","delincuentes","root","tonphp");
 		mDelincuentes = new modeloDelincuentes((Connection) cBD.getConexion());
 		
-		pP= new PrincipalPane();
+		pP= new PrincipalPane(mDelincuentes);
 		dP = new DelincuentesPane(mDelincuentes);
 		
 		
