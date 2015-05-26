@@ -92,6 +92,7 @@ public class DelincuentesPane extends JPanel {
 		infoDel.add(lblNombre);
 		
 		textFieldNombre = new JTextField();
+		textFieldNombre.setEditable(false);
 		textFieldNombre.setBounds(391, 68, 182, 29);
 		infoDel.add(textFieldNombre);
 		textFieldNombre.setColumns(10);
@@ -107,16 +108,19 @@ public class DelincuentesPane extends JPanel {
 		infoDel.add(lblNacionalidad);
 		
 		textFieldNacionalidad = new JTextField();
+		textFieldNacionalidad.setEditable(false);
 		textFieldNacionalidad.setColumns(10);
 		textFieldNacionalidad.setBounds(414, 177, 182, 29);
 		infoDel.add(textFieldNacionalidad);
 		
 		textFieldEdad = new JTextField();
+		textFieldEdad.setEditable(false);
 		textFieldEdad.setBounds(367, 119, 59, 29);
 		infoDel.add(textFieldEdad);
 		textFieldEdad.setColumns(10);
 		
 		textFieldSexo = new JTextField();
+		textFieldSexo.setEditable(false);
 		textFieldSexo.setColumns(10);
 		textFieldSexo.setBounds(496, 119, 59, 29);
 		infoDel.add(textFieldSexo);
@@ -132,6 +136,7 @@ public class DelincuentesPane extends JPanel {
 		infoDel.add(lblDireccion);
 		
 		textFieldDireccion = new JTextField();
+		textFieldDireccion.setEditable(false);
 		textFieldDireccion.setColumns(10);
 		textFieldDireccion.setBounds(414, 229, 182, 29);
 		infoDel.add(textFieldDireccion);
@@ -142,6 +147,7 @@ public class DelincuentesPane extends JPanel {
 		infoDel.add(lblPoblacion);
 		
 		textFieldPoblacion = new JTextField();
+		textFieldPoblacion.setEditable(false);
 		textFieldPoblacion.setColumns(10);
 		textFieldPoblacion.setBounds(414, 281, 182, 29);
 		infoDel.add(textFieldPoblacion);

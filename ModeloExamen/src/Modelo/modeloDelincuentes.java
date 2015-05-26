@@ -20,7 +20,6 @@ public class modeloDelincuentes {
 	
 	private static String NOMBRE_US="usuario";
 	
-	private static String COLUMNAS[]={ID_DEL,NOMBRE_DEL,EDAD_DEL,SEXO_DEL,NAC_DEL,DIR_DEL,POB_DEL,ANT_DEL};
 	
 	Statement instruccion = null;
 	ResultSet conjuntoResultados = null;
@@ -30,12 +29,15 @@ public class modeloDelincuentes {
 		this.conexion=conexion;
 	}
 	
+	/**MÉTODO QUE GENERA UN ARRAY LIST CON LOS DATOS DE LOS DELINCUENTES**/
 	public ArrayList<String[]> getDelincuentes(String nombreDelincuente){
+		//Generamos el array que utilizaremos para guardar los datos.
 		ArrayList<String[]> usuarios=new ArrayList<String[]>();
 		try{
+		//Crea una instrucción para realizar una consulta a la base de datos que nos devuelvan los datos que necesitamos	
 		instruccion = (Statement) this.conexion.createStatement();
 		conjuntoResultados = instruccion.executeQuery("SELECT * FROM delincuentes WHERE nombre= '"+nombreDelincuente+"'");
-		
+		//Recorremomos las filas de la base de datos para almacenarlos datos en arrays de 7 Strings. 
 		while(conjuntoResultados.next()){
 			String[] delincuente=new String[7];
 			System.out.print(conjuntoResultados.getString(NOMBRE_DEL)+";");
@@ -58,6 +60,7 @@ public class modeloDelincuentes {
 	}catch ( SQLException excepcionSql ){
 		excepcionSql.printStackTrace();
 		}finally{
+			//Una vez ya obtenidos los datos se cierra la instrucción.
 			try{
 				conjuntoResultados.close();
 				instruccion.close();
@@ -67,20 +70,20 @@ public class modeloDelincuentes {
 				excepcionSql.printStackTrace();
 			}
 		}
+		//Devuelve el array de usuarios.
 		return usuarios;
 	}
 	
 	public ArrayList<String> getNombres(){
-		//creo arrayList para almacenar resultado de la consulta
+	
 		ArrayList<String> nombres=new ArrayList<String>();
 		
 		try{
-			//sentencia sql
+			//Sentencia sql
 			instruccion = (Statement) this.conexion.createStatement();
 			this.conjuntoResultados =instruccion.executeQuery("select nombre from delincuentes");
 					
 			//Recorremos los resultados y los almacenamos en un ArrayList
-			
 			while( conjuntoResultados.next() ) {
 				nombres.add(conjuntoResultados.getString(NOMBRE_DEL));
 			}
@@ -111,7 +114,6 @@ public class modeloDelincuentes {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			try{
